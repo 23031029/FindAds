@@ -8,7 +8,13 @@
     <link rel="stylesheet" type="text/css" href="../navbar.css">
     <title>Investment</title>
     <style>
-
+         .net {
+            border: 1px solid#ccc;
+            border-color: #ccc;
+            text-align: center; 
+            margin: 10%; 
+            margin-top: 3%;
+         }
     </style>
 </head>
 <body>
@@ -51,5 +57,146 @@
           </nav>
       </header>
   
+      <div class="net">
+        <h1 style="font-weight: lighter;"><b>Financial Investment Overview</b></h1>
+        <div style="text-align: center; margin-top: 3%;">
+            <h5><i>Current Net Worth:</i></h5>
+            <h5 style="display: inline;">S$</h5><b style="font-size: 50px;">7422.41</b>
+        </div>
+        <div>
+            <h5 style="display: inline;"><i>Net Invested: S$ </i></h5>
+            <b style="font-size: 25px;">5000</b>
+        </div>
+        <div style="margin-left: 20%;">
+            <h6 style="display: inline;">Return: S$</h6> 
+            <b>2,422.41</b>
+        </div>
+      </div>
+
+      <div class="portfolio">
+        <div style="display: flex; justify-content: center;">
+            <img src="../image/graph.png" width="80%" alt="graph">
+          </div>
+          
+
+        <div class="container mt-5">
+            <div class="card w-75 mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Rebates</h5>
+                <p class="card-text">
+                  <small>Total: <span style="display: inline-block; text-align: end; width: 100%;">67.23</span></small>
+                </p>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Rebate">
+                    View
+                </button>
+              </div>
+              <div class="modal fade" id="Rebate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="Rebate" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="staticBackdropLabel">Rebates</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr>
+                                <th style="text-align: left; padding-left: 0;">Oct 2023</th>
+                                <td style="text-align: right; padding-right: 0;">4.51</td>
+                            </tr>                        
+                        </table>
+                        
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="container mt-5">
+                <div class="card w-75 mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title">Composition</h5>
+                    <p class="card-text">
+                        
+                      <small>Equities <span style="display: inline-block; text-align: end; width: 100%;">40%</span></small>
+                      <small>Bonds <span style="display: inline-block; text-align: end; width: 100%;">20%</span></small>
+                      <small>REITs <span style="display: inline-block; text-align: end; width: 100%;">15%</span></small>
+                      <small>Cash <span style="display: inline-block; text-align: end; width: 100%;">25%</span></small>
+                    </p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Composition">
+                        View
+                    </button>
+                  </div>
+                  <div class="modal fade" id="Composition" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="Composition" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="staticBackdropLabel">Composition</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <tr>
+                                    <th style="text-align: left; padding-left: 0;">
+                                        Equities <br>
+                                        <span style="font-size: 10px; font-weight: lighter;">
+                                            Johnson & Johnson (JNJ) - 30% <br>
+                                            Tesla Inc. (TSLA) - 10% <br>
+                                            Procter & Gamble Co. (PG) - 15% <BR>
+                                            Alphabet Inc. (GOOGL) - 25% <br>
+                                            Microsoft Corporation (MSFT) - 20%
+                                        </span>
+                                    </th>
+                                    <td style="text-align: right; padding-right: 0;">30%</td>
+                                </tr>             
+                                
+                                <tr>
+                                    <th style="text-align: left; padding-left: 0;">
+                                        Bonds <br>
+                                        <span style="font-size: 10px; font-weight: lighter;">
+                                            Government Bond: 30% <br>
+                                            (Long term bond issued by Government with low risk.) <br>
+                                            Corporate Bond: 35% <br>
+                                            (Higher yields with higher risk) <br>
+                                            High-Yield Bond: 35% <br>
+                                            (Higher interest rate issued by entities with lower credit ratings providing higher returns with higher risk.)
+
+                                        </span>
+                                    </th>
+                                    <td style="text-align: right; padding-right: 0;">30%</td>
+                                </tr>   
+                                
+                                <tr>
+                                    <th style="text-align: left; padding-left: 0;">
+                                        REITs <br>
+                                        <span style="font-size: 10px; font-weight: lighter;">
+                                            CapitaLand Integrated Commercial Trust (CICT):  <br>
+                                            (Long term bond issued by Government with low risk.) <br>
+                                            Corporate Bond: 35% <br>
+                                            (Higher yields with higher risk) <br>
+                                            High-Yield Bond: 35% <br>
+                                            (Higher interest rate issued by entities with lower credit ratings providing higher returns with higher risk.)
+
+                                        </span>
+                                    </th>
+                                    <td style="text-align: right; padding-right: 0;">30%</td>
+                                </tr>          
+                            </table>
+                            
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Understood</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        </div>
+        
+          
 </body>
 </html>
