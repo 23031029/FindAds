@@ -15,13 +15,23 @@
       width: 20%;
       margin-right: 20%;
     }
+
+    .btn {
+      color: black;
+      background-color: #ffd700;
+      border:#ffd700;
+    }
+    .btn:hover{
+      background-color: black;
+      color: #ffd700;
+    }
 </style>
 </head>
 <body>
   <header>
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="../homepage.html">FindAds</a>
+            <a class="navbar-brand" href="../homepage.html">FindAds</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -39,27 +49,31 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../advisor.html">Financial Advisors</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../contact.html">Contact Us</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="../image/profile.png" alt="Profile">
+                            <img src="../image/profile.png" alt="Profile" width="100%">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="../wallet.html">My Wallet</a></li>
                             <li><a class="dropdown-item" href="../myAdvisor.html">My Advisor</a></li>
-                            <li><a class="dropdown-item" href="../index.html">Log Out</a></li>                        </ul>
+                            <li><a class="dropdown-item" href="../index.html">Log Out</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
           </div>
       </nav>
-  </header>
+</header>
   
 
   <div class="container">
     <div class="clearfix">
-      <img src="../image/wallet.png" class="col-md-6 float-md-end mb-3 ms-md-3" alt="wallet" style="background-color: white;">
+      <img src="../image/wallet.png" class="col-md-6 float-md-end mb-3 ms-md-3" alt="wallet" style="background-color: rgb(255, 255, 255);">
     
       <div class="payment" style="font-size: xx-large; margin-left: 10%;">
 
@@ -180,6 +194,35 @@
     </div>
   </div>
   
+  <footer class="footer">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>FindAds</h5>
+                <p>&copy; 2024 FindAds. All rights reserved.</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="../homepage.html">Home</a></li>
+                    <li><a href="../company.html">About Us</a></li>
+                    <li><a href="../service.html">Services</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Follow Us</h5>
+                <ul class="list-unstyled">
+                    <li><a href="https://www.facebook.com/help/">Facebook</a></li>
+                    <li><a href="https://x.com/HELP">Twitter</a></li>
+                    <li><a href="https://help.instagram.com/">Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/help/linkedin">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
   <script>
     function funded1() {
         const amount1 = document.getElementById("amount1").value;

@@ -102,22 +102,26 @@
                         <li class="nav-item">
                             <a class="nav-link" href="../advisor.html">Financial Advisors</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../contact.html">Contact Us</a>
+                        </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../image/profile.png" alt="Profile">
+                                <img src="../image/profile.png" alt="Profile" width="100%">
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="../wallet.html">My Wallet</a></li>
                                 <li><a class="dropdown-item" href="../myAdvisor.html">My Advisor</a></li>
-                                <li><a class="dropdown-item" href="../index.html">Log Out</a></li>                            </ul>
+                                <li><a class="dropdown-item" href="../index.html">Log Out</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
               </div>
           </nav>
-      </header>
+    </header>
 
       <main>
         <div class="chat-container">
@@ -130,29 +134,53 @@
             </form>
       </main>
 
+      <footer class="footer">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>FindAds</h5>
+                    <p>&copy; 2024 FindAds. All rights reserved.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../homepage.html">Home</a></li>
+                        <li><a href="../company.html">About Us</a></li>
+                        <li><a href="../service.html">Services</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.facebook.com/help/">Facebook</a></li>
+                        <li><a href="https://x.com/HELP">Twitter</a></li>
+                        <li><a href="https://help.instagram.com/">Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/help/linkedin">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
     <script>
         document.getElementById('messageForm').addEventListener('submit', function(event) {
             event.preventDefault();
             
-            // Get the message input value
             const messageInput = document.getElementById('messageInput');
             const messageText = messageInput.value.trim();
             
-            // If there's a message, add it to the chat
             if (messageText) {
-                // Create a new message element
                 const messageElement = document.createElement('div');
                 messageElement.className = 'message user';
                 messageElement.textContent = messageText;
                 
-                // Add the message to the message area
                 const messageArea = document.getElementById('messageArea');
                 messageArea.appendChild(messageElement);
                 
-                // Clear the input field
                 messageInput.value = '';
                 
-                // Scroll to the bottom of the message area
                 messageArea.scrollTop = messageArea.scrollHeight;
                 
                 // Simulate a bot response
