@@ -95,3 +95,97 @@ footer {
 .footer a:hover {
     text-decoration: underline;
 }
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    max-width: 300px;
+    margin: 20px auto;
+    border: 1px solid rgb(255, 253, 253);
+    background-color: rgb(0, 0, 0);
+    
+}
+
+.calendar-header {
+    text-align: center;
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+}
+
+.day {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #0056b3;
+    color: #fdd700;
+    box-sizing: border-box;
+}
+
+.day:hover {
+    background-color: #444;
+}
+
+.day.selected {
+    background-color: green;
+    color: rgb(255, 255, 255);
+}
+
+.day-name {
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.time {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.time h4 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.time form {
+    display: flex;
+    flex-direction: column;
+}
+
+.time label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.time input[type="radio"] {
+    margin-right: 10px;
+    
+}
+
+.time input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.time button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: rgb(0, 0, 0);
+}
+
+.time button:hover {
+    background-color: #0056b3;
+}
