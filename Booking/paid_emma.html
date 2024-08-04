@@ -25,7 +25,7 @@
   <header>
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">FindAds</a>
+          <a class="navbar-brand" href="../homepage.html">FindAds</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -52,8 +52,7 @@
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="../wallet.html">My Wallet</a></li>
                             <li><a class="dropdown-item" href="../myAdvisor.html">My Advisor</a></li>
-                            <li><a class="dropdown-item" href="../block.html">View Blocks</a></li>
-                        </ul>
+                            <li><a class="dropdown-item" href="../index.html">Log Out</a></li>                        </ul>
                     </li>
                 </ul>
             </div>
@@ -78,10 +77,9 @@
       <li><b>Phone Number:</b> 87654321</li>
       <br>
       <h3 class="details">Appointment Details</h3>
-      <li><b>Date:</b> 26 August 2024</li>
-      <li><b>Time:</b> 1500-1700</li>
-      <li><b>Location:</b> Orchard Gateway</li>
-      <li><b>Communication:</b> Whatsapp</li>
+      <li><b>Date:</b><span id="date"></span></li>
+      <li><b>Time:</b><span id="timing"></span></li>
+      <li><b>Location:</b><span id="location"></span></li>
       <li><b>Total fee (first consultation):</b> $250</li>
     </ul>
     <br><br>
@@ -106,7 +104,7 @@
       <li>
         <h5>Set Up Appointment Reminders:</h5>
         <ul>
-            <li>Add to <span style="text-decoration: underline;">Google Calender</span> or <span style="text-decoration: underline;">Apple Calender</span></li>
+          <li>Add to <a href="https://calendar.google.com/calendar/u/0/r?pli=1">Google Calender</a> or <a href="https://www.icloud.com/calendar/">Apple Calender</a></li>
         </ul>
       </li>
     </ol>
@@ -123,5 +121,20 @@
     <p>Your transactions and personal information are secure with us. For more details, please refer to our Privacy Policy.</p>
   </footer>
   
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+            const booking = JSON.parse(sessionStorage.getItem('booking'));
+
+            if (booking) {
+                document.getElementById('date').textContent = booking.date;
+                document.getElementById('timing').textContent = booking.timing;
+                document.getElementById('location').textContent = booking.location;
+            } else {
+                document.getElementById('date').textContent = "Not available";
+                document.getElementById('timing').textContent = "Not available";
+                document.getElementById('location').textContent = "Not available";
+            }
+        });
+  </script>
 </body>
 </html>

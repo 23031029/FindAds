@@ -40,7 +40,7 @@
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="../index.html">FindAds</a>
+                <a class="navbar-brand" href="../homepage.html">FindAds</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -67,8 +67,7 @@
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="../wallet.html">My Wallet</a></li>
                                 <li><a class="dropdown-item" href="../myAdvisor.html">My Advisor</a></li>
-                                <li><a class="dropdown-item" href="../block.html">View Blocks</a></li>
-                            </ul>
+                                <li><a class="dropdown-item" href="../index.html">Log Out</a></li>                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -76,41 +75,57 @@
           </nav>
       </header>
 
-<div id="funded">
-    <h1>Transaction Ongoing</h1>
-    <p>
-        <small>
-            Transaction ID: 1234567890 <br>
-            Date: <span id="date"></span> <br>
-            Amount being Funded: $<span id="funded_amount"></span>
-        </small>
-    </p>
-    <h1>
-        Thank you for choosing FindAds! <br>
-        Hope you enjoy your day! <br>
-        If you have any enquiries about the Transaction, feel free to contact us.
-    </h1>
-</div>
-
-<div class="text-center mb-4">
-    <a href="../wallet.html" style="text-decoration: none;">
-        <button type="button" class="btn btn-custom">Go to Wallet</button>
-    </a>
-</div>
-
-<script>
-    // Set current date
-    const date = new Date();
-    document.getElementById('date').textContent = date.toLocaleString();
-
-    // Get amounts from sessionStorage
-    const amount1 = sessionStorage.getItem('amount1');
-    const amount2 = sessionStorage.getItem('amount2');
-
-    // Display the amount being funded
-    const fundedAmount = amount1 || amount2 || "Not available";
-    document.getElementById('funded_amount').textContent = fundedAmount;
-
-</script>
-</body>
-</html>
+      <div id="funded">
+        <h1>Transaction Ongoing</h1>
+        <p>
+            <small>
+                Transaction ID: 1234567890 <br>
+                Date: <span id="date"></span> <br>
+                Amount being Funded: $<span id="funded_amount"></span>
+            </small>
+        </p>
+        <h1>
+            Thank you for choosing FindAds! <br>
+            Hope you enjoy your day! <br>
+            If you have any enquiries about the Transaction, feel free to contact us.
+        </h1>
+    </div>
+    
+    <div class="text-center mb-4">
+        <a href="../wallet.html" style="text-decoration: none;">
+            <button type="button" class="btn btn-custom">Go to Wallet</button>
+        </a>
+    </div>
+    
+    <script>
+        // Set current date
+        const date = new Date();
+        document.getElementById('date').textContent = date.toLocaleString();
+    
+        // Get amounts from sessionStorage
+        const amount1 = sessionStorage.getItem('amount1');
+        const amount2 = sessionStorage.getItem('amount2');
+    
+        // Display the amount being funded
+        const fundedAmount = amount1 || amount2 || "Not available";
+        document.getElementById('funded_amount').textContent = fundedAmount;
+    
+        // Update wallet balance
+        const walletBalance = parseFloat(localStorage.getItem('walletBalance'));
+        const newBalance = walletBalance + parseFloat(fundedAmount);
+        localStorage.setItem('walletBalance', newBalance.toFixed(2));
+    
+        // Add new transaction
+        const transactions = JSON.parse(localStorage.getItem('transactions'));
+        transactions.push({
+            name: "New Transaction",
+            id: "1234567890",
+            date: date.toLocaleString(),
+            amount: parseFloat(fundedAmount),
+            status: "SUCCESSFUL"
+        });
+        localStorage.setItem('transactions', JSON.stringify(transactions));
+    </script>
+    </body>
+    </html>
+    

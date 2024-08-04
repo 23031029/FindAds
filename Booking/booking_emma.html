@@ -105,7 +105,7 @@
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="../index.html">FindAds</a>
+                <a class="navbar-brand" href="../homepage.html">FindAds</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -132,7 +132,7 @@
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="../wallet.html">My Wallet</a></li>
                                 <li><a class="dropdown-item" href="../myAdvisor.html">My Advisor</a></li>
-                                <li><a class="dropdown-item" href="../block.html">View Blocks</a></li>
+                                <li><a class="dropdown-item" href="../index.html">Log Out</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -142,8 +142,10 @@
       </header>
       
 
-    <div class="calendar-header">
-        <header>August 2024</header>
+      <div class="calendar-header">
+        <header id="months">
+            <input type="month" id="month-input">
+        </header>
     </div>
     <div class="calendar">
         <div class="day-name">Mon</div>
@@ -159,49 +161,64 @@
         <h4 class="selectedDate"></h4>
         <form>
             <label for="timing">Choose your timing</label>
-            <div style=" color: black;">
-                <input type="radio" name="timing" value="1100-1300" > 1100-1300
+            <div style="color: black;">
+                <input type="radio" name="timing" value="1300-1500"> 1300-1500
                 <input type="radio" name="timing" value="1500-1700"> 1500-1700
+                <input type="radio" name="timing" value="1700-1800"> 1700-1800
                 <input type="radio" name="timing" value="1830-2030"> 1830-2030
             </div>
             <label for="location">Preferred Location:</label>
             <input type="text" name="location" placeholder="Location (E.g Orchard Gateway)">
-            <label for="communication">Preferred Communication medium:</label>
-            <input type="text" name="communication" placeholder="Medium (E.g whatsapp)">
-            <a href="/Booking/confirm_emma.html" style="color: white; text-decoration: none;"><button type="button" class="btn btn-secondary">Confirm</button></a>
+            <button type="button" onclick="booking()" class="btn btn-secondary">Confirm</button>
         </form>
     </div>
 
-    
-
     <script>
-      const calendar = document.querySelector('.calendar');
-      const selectedDateElement = document.querySelector('.selectedDate');
-      
-      // Get Day from loop
-      for (let day = 1; day <= 31; day++) {
-          const dayElement = document.createElement('div');
-          dayElement.classList.add('day');
-          dayElement.textContent = day;
-  
-          dayElement.addEventListener('click', () => {
-              // Remove 'selected' class from any previously selected day
-              const selectedDay = document.querySelector('.day.selected');
-              if (selectedDay) {
-                  selectedDay.classList.remove('selected');
-              }
-  
-              // Add 'selected' class to the clicked day
-              dayElement.classList.add('selected');
-  
-              // Update the selectedDateElement with the selected day
-              const month = 'August'; // You can dynamically set the month if needed
-              selectedDateElement.textContent = `${day} ${month}`;
-          });
-  
-          calendar.appendChild(dayElement);
-      }
-  </script>
-  
+        const calendar = document.querySelector('.calendar');
+        const selectedDateElement = document.querySelector('.selectedDate');
+        const monthInput = document.getElementById('month-input');
+
+        for (let day = 1; day <= 31; day++) {
+            const dayElement = document.createElement('div');
+            dayElement.classList.add('day');
+            dayElement.textContent = day;
+
+            dayElement.addEventListener('click', () => {
+                const selectedDay = document.querySelector('.day.selected');
+                if (selectedDay) {
+                    selectedDay.classList.remove('selected');
+                }
+
+                dayElement.classList.add('selected');
+
+                const monthValue = monthInput.value;
+                if (monthValue) {
+                    const [year, month] = monthValue.split('-');
+                    const formattedMonth = month.padStart(2, '0');
+                    const formattedDay = day.toString().padStart(2, '0');
+                    selectedDateElement.textContent = `${formattedDay}/${formattedMonth}/${year}`;
+                } else {
+                    selectedDateElement.textContent = `Please select a month.`;
+                }
+            });
+
+            calendar.appendChild(dayElement);
+        }
+
+        function booking() {
+            const selectedDate = selectedDateElement.textContent;
+            const selectedTiming = document.querySelector('input[name="timing"]:checked').value;
+            const selectedLocation = document.querySelector('input[name="location"]').value;
+
+            const bookingDetails = {
+                date: selectedDate,
+                timing: selectedTiming,
+                location: selectedLocation
+            };
+
+            sessionStorage.setItem('booking', JSON.stringify(bookingDetails));
+            window.location.href = '../Booking/confirm_emma.html';
+        }
+    </script>
 </body>
 </html>

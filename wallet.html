@@ -112,80 +112,130 @@
               </div>
           </nav>
       </header>
-
-<div class="container my-4">
-    <div class="card mb-3 card-custom" style="border-radius: 5%; font-size: 50px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="../image/wallet.png" class="img-fluid rounded-start" alt="...">
+      
+      <main>
+        <div class="container my-4">
+            <div class="card mb-3 card-custom" style="border-radius: 5%; font-size: 50px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="../image/wallet.png" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <br>
+                            <h5 class="card-title" style="font-size: 55px; font-weight: bolder;">FindAds's Wallet</h5>
+                            <p class="card-text">
+                                <small class="text-body-secondary">Amount in FindAds Wallet:</small>
+                                <br>
+                                <b id="wallet-balance">$50,000</b>
+                            </p>
+                            <p class="card-text">
+                                <a href="wallet_funding/funds.html"><button type="button" class="btn btn-dark" style="width: 500px; height: 60px; font-size: large;">Add Fund</button></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <br>
-                    <h5 class="card-title" style="font-size: 55px; font-weight: bolder;">FindAds's Wallet</h5>
-                    <p class="card-text">
-                        <small class="text-body-secondary">Amount in FindAds Wallet:</small>
-                        <br>
-                        <b>$50,000</b>
-                    </p>
-                    <p class="card-text">
-                        <a href="wallet_funding/funds.html"><button type="button" class="btn btn-dark" style="width: 500px; height: 60px; font-size: large;">Add Fund</button></a>
-                    </p>
+        
+            <div class="transaction-list" id="transaction-list">
+                <div class="transaction">
+                    <img src="../image/transactionpfp.png" alt="Profile Picture">
+                    <div class="transaction-info">
+                        <h2>JOHNNY TAN WEI MING</h2>
+                        <h6>
+                            <small>
+                                Transaction ID: 00199284773
+                                <br>
+                                01:12 31 September 2024
+                            </small>
+                        </h6>
+                    </div>
+                    <div class="transaction-amount">+$187.67</div>
+                    <div class="transaction-status">SUCCESSFUL</div>
+                </div>
+                
+                <div class="transaction">
+                    <img src="../image/transactionpfp.png" alt="Profile Picture">
+                    <div class="transaction-info">
+                        <h2>JOHNNY TAN WEI MING</h2>
+                        <h6>
+                            <small>
+                                Transaction ID: 9473858454
+                                <br>
+                                03:57 29 August 2024
+                            </small>
+                        </h6>
+                    </div>
+                    <div class="transaction-amount" style="color: red;">-$1,300</div>
+                    <div class="transaction-status">SUCCESSFUL</div>
+                </div>
+                </div>
+                
+                <div class="transaction">
+                <img src="../image/transactionpfp.png" alt="Profile Picture">
+                <div class="transaction-info">
+                    <h2>DBS PTD.LTD</h2>
+                    <h6>
+                        <small>
+                            Transaction ID: 9473858454
+                            <br>
+                            03:57 29 August 2024
+                        </small>
+                    </h6>
+                </div>
+                <div class="transaction-amount">+$51,112.33</div>
+                <div class="transaction-status">SUCCESSFUL</div>
                 </div>
             </div>
         </div>
-    </div>
+        
+               
+      </main>
 
-    <div class="transaction-list">
-        <div class="transaction">
-            <img src="../image/transactionpfp.png" alt="Profile Picture">
-            <div class="transaction-info">
-                <h2>JOHNNY TAN WEI MING</h2>
-                <h6>
-                    <small>
-                        Transaction ID: 00199284773
-                        <br>
-                        01:12 31 September 2024
-                    </small>
-                </h6>
-            </div>
-            <div class="transaction-amount">+$187.67</div>
-            <div class="transaction-status">SUCCESSFUL</div>
-        </div>
-
-        <div class="transaction">
-            <img src="../image/transactionpfp.png" alt="Profile Picture">
-            <div class="transaction-info">
-                <h2>JOHNNY TAN WEI MING</h2>
-                <h6>
-                    <small>
-                        Transaction ID: 9473858454
-                        <br>
-                        03:57 29 August 2024
-                    </small>
-                </h6>
-            </div>
-            <div class="transaction-amount" style="color: red;">-$1,300</div>
-            <div class="transaction-status">SUCCESSFUL</div>
-        </div>
-    </div>
-
-    <div class="transaction">
-        <img src="../image/transactionpfp.png" alt="Profile Picture">
-        <div class="transaction-info">
-            <h2>DBS PTD.LTD</h2>
-            <h6>
-                <small>
-                    Transaction ID: 9473858454
-                    <br>
-                    03:57 29 August 2024
-                </small>
-            </h6>
-        </div>
-        <div class="transaction-amount">+$51,112.33</div>
-        <div class="transaction-status">SUCCESSFUL</div>
-    </div>
-</div>
-</div>
+      <script>
+        // Initialize wallet balance and transactions
+        if (!localStorage.getItem('walletBalance')) {
+            localStorage.setItem('walletBalance', '50000');
+        }
+        if (!localStorage.getItem('transactions')) {
+            localStorage.setItem('transactions', JSON.stringify([]));
+        }
+    
+        // Display wallet balance
+        document.getElementById('wallet-balance').textContent = `$${localStorage.getItem('walletBalance')}`;
+    
+        // Display transactions
+        const transactions = JSON.parse(localStorage.getItem('transactions'));
+        const transactionList = document.getElementById('transaction-list');
+        transactions.forEach(transaction => {
+            addTransactionCard(transaction);
+        });
+    
+        function addTransactionCard(transaction) {
+            const transactionDiv = document.createElement('div');
+            transactionDiv.classList.add('transaction');
+            
+            transactionDiv.innerHTML = `
+                <img src="../image/transactionpfp.png" alt="Profile Picture">
+                <div class="transaction-info">
+                    <h2>${transaction.name}</h2>
+                    <h6>
+                        <small>
+                            Transaction ID: ${transaction.id}
+                            <br>
+                            ${transaction.date}
+                        </small>
+                    </h6>
+                </div>
+                <div class="transaction-amount" style="color: ${transaction.amount < 0 ? 'red' : 'green'};">
+                    ${transaction.amount < 0 ? '-' : '+'}$${Math.abs(transaction.amount)}
+                </div>
+                <div class="transaction-status">${transaction.status}</div>
+            `;
+            transactionList.appendChild(transactionDiv);
+        }
+    </script>
 </body>
 </html>
+
+
